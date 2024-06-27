@@ -15,7 +15,7 @@ import java.security.Principal;
 // convert this class to a REST controller
 @RestController
 // only logged in users should have access to these actions
-@CrossOrigin (origins = "http://localhost:63342")
+@CrossOrigin //(origins = "http://localhost:63342")
 public class ShoppingCartController
 {
     // a shopping cart requires

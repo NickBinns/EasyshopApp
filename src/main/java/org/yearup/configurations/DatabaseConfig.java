@@ -5,6 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.yearup.data.ProfileDao;
+import org.yearup.data.UserDao;
+import org.yearup.data.mysql.MySqlProfileDao;
+import org.yearup.data.mysql.MySqlUserDao;
+
+import javax.sql.DataSource;
 
 @Configuration
 public class DatabaseConfig
@@ -15,6 +21,16 @@ public class DatabaseConfig
     public BasicDataSource dataSource()
     {
         return basicDataSource;
+    }
+
+    @Bean
+    public UserDao userDao(DataSource dataSource) {
+        return new MySqlUserDao(dataSource);
+    }
+
+    @Bean
+    public ProfileDao profileDao (DataSource dataSource) {
+        return new MySqlProfileDao(dataSource);
     }
 
     @Autowired

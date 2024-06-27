@@ -24,7 +24,7 @@ import org.yearup.security.jwt.JWTFilter;
 import org.yearup.security.jwt.TokenProvider;
 
 @RestController
-@CrossOrigin (origins = "http://localhost:63342")
+@CrossOrigin //(origins = "http://localhost:63342")
 @PreAuthorize("permitAll()")
 public class AuthenticationController {
 
@@ -67,7 +67,7 @@ public class AuthenticationController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    @RequestMapping(path = "/register", method = RequestMethod.POST)
     public ResponseEntity<User> register(@Valid @RequestBody RegisterUserDto newUser) {
 
         try
