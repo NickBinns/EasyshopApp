@@ -14,8 +14,8 @@ import java.security.Principal;
 
 // convert this class to a REST controller
 @RestController
-// only logged in users should have access to these actions
-@CrossOrigin //(origins = "http://localhost:63342")
+// only logged-in users should have access to these actions
+@CrossOrigin
 public class ShoppingCartController
 {
     // a shopping cart requires
@@ -30,13 +30,13 @@ public class ShoppingCartController
     {
         try
         {
-            // get the currently logged in username
+            // get the currently logged-in username
             String userName = principal.getName();
             // find database user by userId
             User user = userDao.getByUserName(userName);
             int userId = user.getId();
 
-            // use the shoppingcartDao to get all items in the cart and return the cart
+            // use the shopping-cartDao to get all items in the cart and return the cart
             return null;
         }
         catch(Exception e)

@@ -15,10 +15,10 @@ import java.util.List;
 // add the annotations to make this a REST controller
 @RestController
 // add the annotation to make this controller the endpoint for the following url
-    // http://localhost:8080/categories
+// http://localhost:8080/categories
 @RequestMapping("/categories")
 // add annotation to allow cross site origin requests
-@CrossOrigin //(origins = "http://localhost:63342")
+@CrossOrigin
 public class CategoriesController
 {
     private CategoryDao categoryDao;
@@ -37,7 +37,6 @@ public class CategoriesController
     @PreAuthorize("permitAll()")
     public List<Category> getAll()
     {
-        System.out.print("Method was called from api");
         // find and return all categories
         return categoryDao.getAllCategories();
     }
